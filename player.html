@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <title>TvSei Live</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://vjs.zencdn.net/7.20.3/video-js.min.css" rel="stylesheet" />
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        background-color: black;
+        height: 100%;
+        width: 100%;
+      }
+      .video-js {
+        height: 100vh;
+        width: 100vw;
+      }
+    </style>
+  </head>
+  <body>
+    <video
+      id="tvsei-player"
+      class="video-js vjs-default-skin"
+      controls
+      autoplay
+      playsinline
+      muted
+      preload="auto"
+    >
+      <source src="http://185.202.128.1:1935/TvSeiHBBTV/tvseiWebPresenter/playlist.m3u8" type="application/x-mpegURL" />
+      Il tuo browser non supporta il video.
+    </video>
+
+    <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+  </body>
+</html>
