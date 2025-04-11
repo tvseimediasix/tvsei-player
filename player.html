@@ -2,7 +2,7 @@
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
-    <title>TvSei Live (Shaka)</title>
+    <title>TvSei Live (Shaka + Proxy)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
       html, body {
@@ -26,7 +26,8 @@
 
     <script>
       async function initPlayer() {
-        const manifestUri = 'http://localhost:3001/api/live/manifest.mpd';
+        const manifestUri = 'https://tvsei-stream-proxy.onrender.com/api/live/manifest.mpd';
+
         const video = document.getElementById('video');
         const player = new shaka.Player(video);
 
