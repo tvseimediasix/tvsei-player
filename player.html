@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <title>TvSei Live (Shaka)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: black;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+      }
+      video {
+        width: 100vw;
+        height: 100vh;
+        background: black;
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.5/shaka-player.compiled.min.js"></script>
+  </head>
+  <body>
+    <video id="video" autoplay muted controls playsinline></video>
+
+    <script>
+      async function initPlayer() {
+        const manifestUri = 'http://185.202.128.1:1935/TvSeiHBBTV/tvseiWebPresenter/manifest.mpd';
+
+        const video = document.getElementById('video');
+        const player = new shaka.Player(video);
+
+        player.addEventListener('error', e => console.error('Shaka Error', e));
+
+        try {
+          await player.load(manifestUri);
+          console.log('Shaka: Video caricato correttamente');
+        } catch (e) {
+          console.error('Errore nel caricamento video:', e);
+        }
+      }
+
+      if (shaka.Player.isBrowserSupported()) {
+        document.addEventListener('DOMContentLoaded', initPlayer);
+      } else {
+        console.error('Shaka Player non supportato nel browser');
+      }
+    </script>
+  </body>
+</html>
