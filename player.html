@@ -26,8 +26,7 @@
 
     <script>
       async function initPlayer() {
-        const manifestUri = 'http://185.202.128.1:1935/TvSeiHBBTV/tvseiWebPresenter/manifest.mpd';
-
+        const manifestUri = 'http://localhost:3001/api/live/manifest.mpd';
         const video = document.getElementById('video');
         const player = new shaka.Player(video);
 
